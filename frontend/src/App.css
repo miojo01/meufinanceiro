@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Topo Roxo */
+.header {
+  background-color: #820AD1; /* Roxo Nubank */
+  color: white;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo { font-weight: bold; font-size: 1.4rem; letter-spacing: 1px; }
+.usuario { background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;}
+
+.conteudo {
+  padding: 20px;
+  max-width: 500px; /* Layout Mobile-first */
+  margin: -30px auto 0; /* Sobe um pouco para cima do roxo */
+  width: 90%;
+}
+
+/* Cartões Brancos */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+h3 { margin: 0 0 15px 0; color: #820AD1; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
+h1 { font-size: 2.5rem; margin: 10px 0; color: #333; }
+
+/* Formulário */
+.form-gasto { display: flex; flex-direction: column; gap: 12px; }
+
+input, select, button {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  outline: none;
+}
+
+input:focus, select:focus { border-color: #820AD1; }
+
+button {
+  background-color: #820AD1;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 10px;
+}
+
+button:hover { background-color: #6906a8; }
+
+/* Listas */
+.lista-gastos { list-style: none; padding: 0; margin: 0; }
+
+.item-gasto {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.item-gasto:last-child { border-bottom: none; }
+
+.icone-gasto {
+  background: #f7f7f7;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-right: 15px;
+}
+
+.info-gasto { flex: 1; display: flex; flex-direction: column; }
+.info-gasto strong { font-size: 1rem; color: #444; }
+.info-gasto small { color: #999; font-size: 0.8rem; margin-top: 2px; }
+
+.valor-gasto { font-weight: bold; color: #f44336; } /* Vermelho para gastos */
+
+.item-categoria {
+  display: flex; justify-content: space-between;
+  padding: 8px 0; border-bottom: 1px dashed #eee;
+}
+
+/* ... mantenha o css anterior ... */
+
+/* Novos estilos para os botões de Tipo */
+.tipo-selecao {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.tipo-selecao button {
+  flex: 1;
+  margin-top: 0;
+  background: white;
+  border: 1px solid #ccc;
+  color: #666;
+}
+
+.tipo-selecao .btn-receita.ativo {
+  background-color: #e8f5e9;
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+.tipo-selecao .btn-despesa.ativo {
+  background-color: #ffebee;
+  border-color: #f44336;
+  color: #f44336;
+}
+
+.btn-submit {
+  background-color: #820AD1;
+  color: white;
+}
