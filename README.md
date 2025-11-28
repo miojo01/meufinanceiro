@@ -37,5 +37,5 @@ Certifique-se de ter o [Node.js](https://nodejs.org/) instalado em sua máquina.
 
 ### 1. Clone o repositório
 ```bash
-git clone [https://github.com/SEU_USUARIO/MeuFinanceiro-Projeto.git](https://github.com/SEU_USUARIO/MeuFinanceiro-Projeto.git)
+git clone [https://github.com/miojo01/meufinanceiro](https://github.com/miojo01/meufinanceiro)
 cd MeuFinanceiro-Projeto
