@@ -2,21 +2,21 @@ import * as GastoService from './servicos/gastoService.js';
 import * as CategoriaService from './servicos/categoriaService.js';
 import { balanco } from './database.js';
 
-// O Facade! Ele é a única "porta de entrada" que a nossa API (Fase 3)
-// vai conhecer. Ele esconde toda a complexidade dos subsistemas.
+// O Padrão Facade tem como objetivo fornecer uma interface simplificada para um subsistema complexo, isolando o código cliente da sua complexidade interna
 
+// o padrão Facade nesta classe "FinanceiroFacade" atua como um wrapper que encapsula os subsistemas."
 export class FinanceiroFacade {
     
     constructor() {
-        // Ao iniciar, já criamos as categorias de exemplo
+        // Inicializa categorias padrão
         CategoriaService.setupCategoriasIniciais();
     }
 
-    // Operação 1: Registrar um novo gasto (operação complexa)
-    // Agora aceita 'tipo' também
+    // Quando chega um novo gasto, o Facade encarrega-se de chamar =>
     registrarNovoGasto(descricao, valor, nomeCategoria, tipo) {
         console.log(`Facade: Registrando ${tipo} de ${valor} em ${nomeCategoria}`);
         
+        // Cria um novo lançamento
         const novoLancamento = {
             id: Date.now().toString(),
             descricao,
@@ -25,16 +25,17 @@ export class FinanceiroFacade {
             data: new Date()
         };
 
+        // => o "GastoService" para atualizar o saldo e, logo de seguida =>
         GastoService.registrarGasto(novoLancamento);
         
-        // Só associamos à árvore de categorias se for despesa (para simplificar o Composite)
-        // Ou podemos associar tudo, depende da sua regra. Vamos associar tudo.
+        // => o "CategoriaService" para atualizar a árvore de categorias. O cliente não sabe que estas duas operações ocorrem separadamente.
         CategoriaService.associarGastoACategoria(novoLancamento, nomeCategoria);
         
+        // Retorna os dados atualizados do dashboard
         return this.obterDashboard();
     }
 
-    // Operação 2: Obter os dados do Dashboard (operação de consulta)
+    // Obtém os dados do dashboard combinando informações dos subsistemas
     obterDashboard() {
         console.log("Facade: Montando dados do dashboard");
         
